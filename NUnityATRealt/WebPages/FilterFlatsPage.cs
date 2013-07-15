@@ -2,6 +2,7 @@
 using RealtAutomation.Framework;
 using RealtAutomation.WebElements;
 using RealtAutomation.Framework.Exceptions;
+using NUnit.Framework;
 
 namespace RealtAutomation.WebPages
 {
@@ -11,8 +12,7 @@ namespace RealtAutomation.WebPages
  
 		public FilterFlatsPage()
 		{
-			if (!chooseFlatsLink.IsDisplayed())
-				throw new PageNotFoundException("Page: " + GetType().Name + " not found");
+			Assert.True(chooseFlatsLink.isPresent());
 		}
 
 		public FlatPage FlatsLinkClick()
