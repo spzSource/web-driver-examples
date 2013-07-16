@@ -10,6 +10,8 @@ namespace RealtAutomation.WebElements.Utils
 		CssSelector,
 		LinkText,
 		PartialLinkText,		
-		XPath
+		XPath,
+
+		Default
 	}
 }

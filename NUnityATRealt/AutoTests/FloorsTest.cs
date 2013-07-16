@@ -12,7 +12,7 @@ namespace RealtAutomation.AutoTests
 	{
 		[Test]
 		[TestCaseSource("GetTestData")]
-		public void CheckFlatsCountByLocationAndFloor(string location, bool notFirstFloor)
+		public void CheckFlatsCountByLocationAndFloor(string location, string notFirstFloor)
 		{
 			Log("Opening home page.");
 			HomePage homePage = new HomePage();
@@ -33,7 +33,7 @@ namespace RealtAutomation.AutoTests
 			flatPage = resultPage.GoToFlatsPage();
 
 			Log("Searching flats by floor (not first floor): " + notFirstFloor);
-			resultPage = flatPage.SearchFlatsByFirstFloor(notFirstFloor);
+			resultPage = flatPage.SearchFlatsByFirstFloor(bool.Parse(notFirstFloor));
 
 			Log("Parse flats count");
 			int flatsCountByFloor = resultPage.GetFlatsCount();

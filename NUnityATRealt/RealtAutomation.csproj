@@ -87,9 +87,8 @@
     <Compile Include="WebElements\Utils\ByFactory.cs" />
     <Compile Include="WebElements\Utils\FindAttribute.cs" />
     <Compile Include="WebElements\Utils\How.cs" />
+    <Compile Include="WebElements\Utils\NameAttribute.cs" />
     <Compile Include="WebElements\Utils\PageFactory.cs" />
-    <Compile Include="WebElements\Utils\WebElementListProxy.cs" />
-    <Compile Include="WebElements\Utils\WebElementProxy.cs" />
     <Compile Include="WebPages\FilterFlatsPage.cs" />
     <Compile Include="WebPages\FlatPage.cs" />
     <Compile Include="WebPages\FlatsResultPage.cs" />
@@ -99,6 +98,11 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="locators.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

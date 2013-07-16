@@ -1,22 +1,46 @@
-﻿using OpenQA.Selenium;
+﻿using NUnitATRealt.WebElements.Utils;
+using OpenQA.Selenium;
 using RealtAutomation.Framework;
 using RealtAutomation.Framework.Exceptions;
 using RealtAutomation.WebElements;
+using RealtAutomation.WebElements.Utils;
 
 namespace RealtAutomation.WebPages
 {
     class FlatPage : BasePage
     {
-		private ComboBox locationInput = new ComboBox(By.XPath(".//*[@id='selection']//td[contains(.,'Населенный пункт:')]//select"));
-		private ComboBox regionComboBox = new ComboBox(By.Name("tx_uedbflat_pi2[DATA][town_subdistrict_id][e][]"));
-		private Button searchButton = new Button(By.XPath("//input[@type='submit']"));
-		private CheckBox firstFloorCheckBox = new CheckBox(By.Id("storey_ne"));
-		private CheckBox lastFloorCheckBox = new CheckBox(By.Id("storey_fne"));
-		private Input fromCostValueInput = new Input(By.Name("tx_uedbflat_pi2[DATA][price][ge]"));
-		private Input toCostValueInput = new Input(By.Name("tx_uedbflat_pi2[DATA][price][le]"));
+		[Find(How = How.XPath)]
+		[Name(ElementName = "LocationInput")]
+		private ComboBox locationInput;
+
+		[Find(How = How.XPath)]
+		[Name(ElementName = "RegionComboBox")]
+		private ComboBox regionComboBox;
+
+		[Find(How = How.XPath)]
+		[Name(ElementName = "SearchButton")]
+		private Button searchButton;
+
+		[Find(How = How.Id)]
+		[Name(ElementName = "FirstFloorCheckBox")]
+		private CheckBox firstFloorCheckBox;
+
+		[Find(How = How.Id)]
+		[Name(ElementName = "LastFloorCheckBox")]
+		private CheckBox lastFloorCheckBox;
+
+		[Find(How = How.Name)]
+		[Name(ElementName = "FromCostValueInput")]
+		private Input fromCostValueInput;
+
+		[Find(How = How.Name)]
+		[Name(ElementName = "ToCostValueInput")]
+		private Input toCostValueInput;
 
 		public FlatPage()
         {
+			PageFactory.InitElements(this);
+
 			if (!searchButton.IsDisplayed())
 				throw new PageNotFoundException("Page: " + GetType().Name + " not found");
 		}

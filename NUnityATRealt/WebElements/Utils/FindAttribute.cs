@@ -7,26 +7,5 @@ namespace RealtAutomation.WebElements.Utils
 	public sealed class FindAttribute : Attribute
 	{
 		public How How { get; set; }
-		public string Using { get; set; }
-		
-		private By finder = null;
-
-		internal By Finder
-		{
-			get
-			{
-				if (this.finder == null)
-				{
-					this.finder = ByFactory.From(this);
-				}
-
-				return this.finder;
-			}
-
-			set
-			{
-				this.finder = (By)value;
-			}
-		}
 	}
 }

@@ -3,15 +3,20 @@ using RealtAutomation.Framework;
 using RealtAutomation.WebElements;
 using RealtAutomation.Framework.Exceptions;
 using NUnit.Framework;
+using RealtAutomation.WebElements.Utils;
+using NUnitATRealt.WebElements.Utils;
 
 namespace RealtAutomation.WebPages
 {
 	class FilterFlatsPage : BasePage
 	{
-		private Link chooseFlatsLink = new Link(By.XPath(".//*[@class='search']/a"));
+		[Find(How = How.XPath)]
+		[Name(ElementName = "ChooseFlatsLink")]
+		private Link chooseFlatsLink;
  
 		public FilterFlatsPage()
 		{
+			PageFactory.InitElements(this);
 			Assert.True(chooseFlatsLink.isPresent());
 		}
 

@@ -2,15 +2,20 @@
 using RealtAutomation.Framework;
 using RealtAutomation.WebElements;
 using RealtAutomation.Framework.Exceptions;
+using RealtAutomation.WebElements.Utils;
+using NUnitATRealt.WebElements.Utils;
 
 namespace RealtAutomation.WebPages
 {
 	class HomePage : BasePage
 	{
-		private Link flatLink = new Link(By.LinkText("Квартиры, комнаты"));
+		[Find(How = How.LinkText)]
+		[Name(ElementName = "FlatLink")]
+		private Link flatLink;
 
 		public HomePage()
 		{
+			PageFactory.InitElements(this);
 			if (!flatLink.IsDisplayed())
 				throw new PageNotFoundException("Page: " + GetType().Name + " not found");
 		}

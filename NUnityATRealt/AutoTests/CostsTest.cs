@@ -12,7 +12,7 @@ namespace RealtAutomation.AutoTests
 	{
 		[Test]
 		[TestCaseSource("GetTestData")]
-		public void CheckFlatsCountByLocationAndCost(string location, int from, int to)
+		public void CheckFlatsCountByLocationAndCost(string location, string from, string to)
 		{
 			Log("Opening home page.");
 			HomePage homePage = new HomePage();
@@ -33,7 +33,7 @@ namespace RealtAutomation.AutoTests
 			flatPage = resultPage.GoToFlatsPage();
 
 			Log("Searching flats by cost from: " + from + " to: " + to);
-			resultPage = flatPage.SearchFlatsByCost(from, to);
+			resultPage = flatPage.SearchFlatsByCost(int.Parse(from), int.Parse(to));
 
 			Log("Parse flats count");
 			int flatsCountByCost = resultPage.GetFlatsCount();
