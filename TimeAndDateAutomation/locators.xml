@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<classes>
+	<class name="HomePage">
+		<field field_name="AppsAndApiLink" locator="Apps & API"/>
+	</class>
+</classes>
