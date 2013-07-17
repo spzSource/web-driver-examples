@@ -1,4 +1,5 @@
-﻿using ATFramework.Framework;
+﻿using System.Collections.Generic;
+using ATFramework.Framework;
 using NUnit.Framework;
 using TimeAndDateAutomation.WebPages;
 
@@ -8,17 +9,20 @@ namespace TimeAndDateAutomation.AutoTests
 	{
 		[Test]
 		[TestCaseSource("GetData")]
-		public void TestMainMenuItem(string menuChain)
+		public void TestMainMenuItem(string menuChain, string navString)
 		{
 			HomePage homePage = new HomePage();
-			IpadAppsPage page = homePage.LoadPage<IpadAppsPage>(menuChain);
+			homePage.ClickToMenuItem(menuChain, navString);
 		}
 
-		private string[] GetData()
+		private IEnumerable<string[]> GetData()
 		{
-			return new string[] 
+			return new[]
 			{
-				"Apps & API > iPad Apps"
+				new string[] { "Apps & API > iPad Apps", "Home > Apps > iPad Apps" },
+				new string[] { "Apps & API > iPad Apps", "Home > Apps > iPad Apps" },
+				new string[] { "Apps & API > iPad Apps", "Home > Apps > iPad Apps" },
+				new string[] { "Apps & API > iPad Apps", "Home > Apps > iPad Apps" }
 			};
 		}
 	}

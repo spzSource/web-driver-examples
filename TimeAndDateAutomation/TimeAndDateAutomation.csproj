@@ -67,13 +67,15 @@
     <Compile Include="AutoTests\MenuTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebPages\HomePage.cs" />
-    <Compile Include="WebPages\IpadAppsPage.cs" />
+    <Compile Include="WebPages\TestablePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="locators.xml" />
+    <Content Include="locators.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

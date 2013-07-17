@@ -20,5 +20,16 @@ namespace ATFramework.Framework.Common
 
 			return matchValue;
 		}
+
+		public static IEnumerable<string> Split(string source, char separator = '>')
+		{
+			//char menuSeparator = ConfigurationManager.AppSettings["menu_separator"]
+			//	.ToCharArray().First();
+
+			string[] menuItems = source.Split(separator)
+				.Select(e => e.Trim())
+				.ToArray();
+			return menuItems;
+		}
 	}
 }
