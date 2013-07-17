@@ -15,7 +15,8 @@ namespace ATFramework
 
 		private Browser()
 		{
-			binary = new FirefoxBinary(ConfigurationManager.AppSettings["firefox_binary_path"]);
+			//binary = new FirefoxBinary(ConfigurationManager.AppSettings["firefox_binary_path"]);
+			binary = new FirefoxBinary();
 			profile = new FirefoxProfile();
 		}
 
@@ -33,7 +34,8 @@ namespace ATFramework
 
 		public void Open()
 		{
-			Driver = new FirefoxDriver(binary, profile);
+			//Driver = new FirefoxDriver(binary, profile);
+			Driver = new FirefoxDriver();
 		}
 
         public void Navigate(Uri url)

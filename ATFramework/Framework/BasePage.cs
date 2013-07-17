@@ -1,4 +1,11 @@
 ﻿using OpenQA.Selenium;
+using ATFramework.Framework.Common;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using ATFramework.WebElements;
+using OpenQA.Selenium.Interactions;
+using System;
 
 namespace ATFramework.Framework
 {
@@ -9,13 +16,28 @@ namespace ATFramework.Framework
 			get { return Browser.Driver; }
 		}
 
-		public T LoadPage<T>(string menuItem)  where T : class
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="menuChain"> Calculators > Date Calculator </param>
+		/// <returns>Page instance</returns>
+		public T LoadPage<T>(string menuChain) where T : class
 		{
-			T page = null;
+			var subitems = menuChain.Split('>').Select(e => e.Trim()).ToList();
 
+			List<Link> links = new List<Link>();
+			subitems.ForEach(e => links.Add(new Link(By.LinkText(e))));
 
+			var last = links.Last();
+			links.Remove(links.Last());
 
-			return page;
+			Actions action = new Actions(Driver);
+			foreach (Link link in links)
+			{
+				action.MoveToElement(link.WebElement).Perform();
+			}
+			last.Click();
+			return Activator.CreateInstance(typeof(T)) as T;
 		}
     }
 }

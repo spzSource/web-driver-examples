@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ATFramework.Framework.Common
 {
@@ -13,7 +16,7 @@ namespace ATFramework.Framework.Common
 			Regex regex = new Regex(pattern);
 			Match match = regex.Match(source);
 
-			string matchValue = (match.Groups[groupNumber].Value);
+			string matchValue = match.Groups[groupNumber].Value;
 
 			return matchValue;
 		}

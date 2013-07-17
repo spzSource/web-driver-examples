@@ -7,11 +7,19 @@ namespace TimeAndDateAutomation.AutoTests
 	class MenuTest : BaseTest
 	{
 		[Test]
-		[TestCaseSource("")]
-		public void TestMainMenuItem(string item)
+		[TestCaseSource("GetData")]
+		public void TestMainMenuItem(string menuChain)
 		{
 			HomePage homePage = new HomePage();
-			BasePage page = homePage.LoadPage<HomePage>(item);
+			IpadAppsPage page = homePage.LoadPage<IpadAppsPage>(menuChain);
+		}
+
+		private string[] GetData()
+		{
+			return new string[] 
+			{
+				"Apps & API > iPad Apps"
+			};
 		}
 	}
 }

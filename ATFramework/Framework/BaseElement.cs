@@ -6,8 +6,22 @@ namespace ATFramework.Framework
 {
 	public abstract class BaseElement : BaseEntity
 	{
+		private IWebElement element;
 		protected By byLocator;
-		protected IWebElement WebElement{ get; set; }
+	
+		public IWebElement WebElement
+		{
+			get
+			{
+				if (element == null)
+					element = Browser.Driver.SafeFindElement(byLocator, WaitTimeInSeconds);
+				return element;
+			}
+			set 
+			{ 
+				element = value; 
+			}
+		}
 		protected readonly int WaitTimeInSeconds = 10;
 
 		public abstract bool IsDisplayed();

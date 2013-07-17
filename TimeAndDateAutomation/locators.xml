@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <classes>
 	<class name="HomePage">
-		<field field_name="AppsAndApiLink" locator="Apps & API"/>
+		<field field_name="AppsAndApiLink" locator=".c-ap>a"/>
+		<field field_name="NavigationChain" locator="bct"/>
+	</class>
+
+	<class name="IpadAppsPage">
+		<field field_name="NavigationChain" locator="bct"/>
 	</class>
 </classes>

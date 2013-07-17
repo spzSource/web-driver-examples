@@ -1,22 +1,24 @@
 ﻿using ATFramework.Framework;
 using ATFramework.WebElements;
 using ATFramework.WebElements.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace TimeAndDateAutomation.WebPages
 {
-	class HomePage : BasePage
+	class IpadAppsPage : BasePage
 	{
-		[Bind(How = How.CssSelector, Name = "AppsAndApiLink")] 
-		private Link linkAppsAndApi;
-
 		[Bind(How = How.Id, Name = "NavigationChain")]
-		private Link navigationChain;
+		private Label navigationChain;
 
-		public HomePage()
+		public IpadAppsPage()
 		{
 			PageFactory.InitElements(this);
-			Assert.True(linkAppsAndApi.isPresent());
+			Assert.True(navigationChain.isPresent());
 		}
 	}
 }
